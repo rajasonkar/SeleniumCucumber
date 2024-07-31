@@ -4,8 +4,8 @@ import org.openqa.selenium.WebDriver;
 
 public class TestBase {
 //define base methods 
-
-WebDriver driver;
+//taskkill /im chromedriver.exe /f
+public static WebDriver driver;
 protected DataFromPropertyFile readPropertFileData = new DataFromPropertyFile();
 
 /*

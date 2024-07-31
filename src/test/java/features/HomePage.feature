@@ -3,4 +3,5 @@ Feature: Title of your feature
 
 
   Scenario: Title of your scenario
-    Given I want to write a step with precondition
+    Given I navigate to Elements page
+    When I navigate to Home page
