@@ -5,10 +5,14 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features="src/test/java/features",
-plugin ="json:target/jsonReports/cucumber-report.json",glue= {"stepDefinition","hooks"}
-)
-
+@CucumberOptions(
+		features="src/test/java/features",
+		glue= {"stepDefinition","hooks"},
+		plugin ={"pretty","json:target/jsonReports/cucumber-report.json",
+		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
+		//)
+		//,tags="@newtab")
+        ,tags="@alerts")
 public class TestRunner {
 //to execute cases
 }

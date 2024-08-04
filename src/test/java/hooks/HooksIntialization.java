@@ -2,14 +2,15 @@ package hooks;
 
 import java.io.IOException;
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import utils.TestBase;
 
 public class HooksIntialization extends TestBase{
@@ -28,6 +29,14 @@ public class HooksIntialization extends TestBase{
 	public void quitBrowser() {
 		//WebDriverManager.chromedriver().setup();
 		driver.quit();
+	}
+	@AfterStep
+	public void afterStep(Scenario scenario)
+	{
+		if(scenario.isFailed()) 
+		{
+			CaptureScreenshot(scenario);
+		}
 	}
 	
 	private WebDriver startBrowser(WebDriver driver) 

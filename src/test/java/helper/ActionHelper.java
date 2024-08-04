@@ -1,7 +1,11 @@
 package helper;
 
+import java.io.File;
 import java.time.Duration;
+import java.util.Iterator;
+import java.util.Set;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -15,6 +19,7 @@ public class ActionHelper extends TestBase{
 //add genric selenium methods
 	WebDriverWait driverWait = new WebDriverWait(driver, Duration.ofSeconds(30));
 	JavascriptExecutor js = (JavascriptExecutor)driver;
+	Alert alert ;
 	public void scrollToElement(WebElement element) 
 	{
 		js.executeScript("arguments[0].scrollIntoView();", element );
@@ -33,6 +38,8 @@ public class ActionHelper extends TestBase{
 		case "clickable":
 			driverWait.until(ExpectedConditions.elementToBeClickable(webElement));
 			break;
+		case "invisible":
+			driverWait.until(ExpectedConditions.invisibilityOfElementLocated(webElement));
 		}
 	}
 	
@@ -61,5 +68,59 @@ public class ActionHelper extends TestBase{
 		
 		return driver.findElement(webElement).isEnabled();
 	}
+	public void uploadFile(String path, By element) 
+	{
+		scrollToElement(element);
+		File file = new File(path);
+		driver.findElement(element).sendKeys(file.getAbsolutePath());
+	}
+	public String getText(By webElement) 
+	{
+		return driver.findElement(webElement).getText();
+	}
+	public String getTextByAttribute(String attributeValue, By webElement) 
+	{
+		return driver.findElement(webElement).getAttribute(attributeValue);
+	}
 	
+	public void click(String webElement, String textToBeInserted) 
+	{
+
+		driver.findElement(By.xpath(String.format(webElement, textToBeInserted))).click();
+	}
+	
+	public void SwitchtoTab(String Url) 
+	{
+		addRunTimeTestData("parentWindow", driver.getWindowHandle());
+		Set<String> windows = driver.getWindowHandles();
+		Iterator<String> itr = windows.iterator();
+		while(itr.hasNext()) 
+		{
+			driver.switchTo().window(itr.next());
+			if(driver.getCurrentUrl().equalsIgnoreCase(Url))
+				break;
+		}
+		
+	}
+	public void SwitchtoParentTab() 
+	{
+		
+	driver.switchTo().window(getRunTimeTestData("parentWindow").toString());
+		
+	}
+	
+	public void alertActions(String alertType)
+	{
+		alert = driver.switchTo().alert();
+		if(alertType.equalsIgnoreCase("simple alert")) 
+		{
+			driverWait.until(ExpectedConditions.alertIsPresent());
+			alert.accept();
+		}
+		else if (alertType.equalsIgnoreCase("reject alert")) 
+		{
+			driverWait.until(ExpectedConditions.alertIsPresent());
+			alert.dismiss();
+		}
+	}
 }

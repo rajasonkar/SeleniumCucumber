@@ -12,8 +12,30 @@ public class HomePage extends TestBase{
 	private By homepageIcon = By.xpath("//div[@id='app']/header/a/img");
 	private By formsButton = By.xpath("//h5[text()='Forms']");
 	private By practiceForm = By.xpath("//span[text()='Practice Form']");
+	private By alertFramesButton = By.xpath("//h5[text()='Alerts, Frame & Windows']");
 	ActionHelper actionHelper = new ActionHelper();
 	
+	public void navigateToScreen(String screen) 
+	{
+		switch(screen) 
+		{
+		case "Elements":
+			navigateToElementsPage();
+			break;
+		case "Home":
+			navigateToHomePage();
+			break;
+		case "Forms":
+			navigateToFormsPage();
+			break;
+		case "AlertFramesWindows":
+			navigateToAlertsFramesPage();
+			break;
+		default:
+		break;
+		}
+		
+	}
 	public void navigateToElementsPage() 
 	{
 		actionHelper.scrollToElement(driver.findElement(elementsButton));
@@ -31,5 +53,11 @@ public class HomePage extends TestBase{
 		actionHelper.scrollToElement(driver.findElement(formsButton));
 		actionHelper.click(formsButton);
 		actionHelper.click(practiceForm);
+	}
+	public void navigateToAlertsFramesPage() 
+	{
+		actionHelper.scrollToElement(driver.findElement(alertFramesButton));
+		actionHelper.click(alertFramesButton);
+		
 	}
 }
