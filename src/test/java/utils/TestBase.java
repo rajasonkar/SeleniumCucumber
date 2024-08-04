@@ -9,7 +9,6 @@ import org.openqa.selenium.WebDriver;
 import io.cucumber.java.Scenario;
 
 public class TestBase {
-//define base methods 
 //taskkill /im chromedriver.exe /f
 	
 public static WebDriver driver;
