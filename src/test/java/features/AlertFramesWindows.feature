@@ -24,3 +24,14 @@ Feature: Alert, Frames and windows
     |buttons|
     |simple alert|
     |reject alert|
+    
+    @frames
+   Scenario: Switch to frames
+    Given I navigate to AlertFramesWindows page
+    When I navigate to Nested Frames page from alertsPage
+    And I switch to parent frame
+    Then I verify text Parent frame on parent
+    When I switch to child frame
+    Then I verify text Child Iframe on child
+    When I navigate to default frame
+    Then I veriy Nested Frames text

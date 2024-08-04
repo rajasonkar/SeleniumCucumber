@@ -14,11 +14,15 @@ public class AlertsFramesWindows extends TestBase{
 	private By newWindowButton = By.cssSelector("button#windowButton");
 	private By simpleAlert = By.cssSelector("button#alertButton");
 	private By rejectAlert = By.cssSelector("button#confirmButton");
-	
+	private String parentFrameId = "frame1";
+	private By parentFrameText = By.xpath("//body[text()]");
+	private By childFrameText = By.xpath("//body/p[text()]");
+	private By headerText = By.cssSelector("div#framesWrapper>h1");
 	ActionHelper actionHelper = new ActionHelper();
 	
 	public void clickButton(String buttonToBeClick) 
 	{
+		actionHelper.scrollToElement(button, buttonToBeClick);
 		actionHelper.click(button, buttonToBeClick);
 	}
 	public void clickNewTab(String buttonName) 
@@ -65,5 +69,39 @@ public class AlertsFramesWindows extends TestBase{
 			actionHelper.scrollToElement(rejectAlert);
 			actionHelper.click(rejectAlert);
 		}
+	}
+	
+	public void switchToParentFrame() 
+	{
+		actionHelper.switchToFrame(parentFrameId);
+	}
+	public void verifyTFrameext(String frame,String text) 
+	{
+		if(frame.equalsIgnoreCase("parent")) 
+		{
+			actionHelper.scrollToElement(parentFrameText);
+		Assert.assertEquals(text, actionHelper.getText(parentFrameText));
+		System.out.println("Text Verified : "+text);
+		}
+		else 
+		{
+			actionHelper.scrollToElement(childFrameText);
+			Assert.assertEquals(text, actionHelper.getText(childFrameText));
+			System.out.println("Text Verified : "+text);
+		}
+	}
+	
+	public void switchToChildFrame() 
+	{
+		actionHelper.switchToFrame(driver.findElement(By.xpath("//*[@srcdoc]")));
+	}
+	public void switchToDefaultFrame() 
+	{
+		actionHelper.switchToDefaultFrame();
+	}
+	public void verifyTextFrames(String text) 
+	{
+		Assert.assertEquals(text, actionHelper.getText(headerText));
+		System.out.println("Text Verified : "+text);
 	}
 }

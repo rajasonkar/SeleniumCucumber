@@ -11,7 +11,7 @@ import io.cucumber.java.Scenario;
 public class TestBase {
 //define base methods 
 //taskkill /im chromedriver.exe /f
-	//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
+	
 public static WebDriver driver;
 protected DataFromPropertyFile readPropertFileData = new DataFromPropertyFile();
 

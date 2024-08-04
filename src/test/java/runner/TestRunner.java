@@ -12,7 +12,7 @@ import io.cucumber.junit.CucumberOptions;
 		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 		//)
 		//,tags="@newtab")
-        ,tags="@alerts")
+        ,tags="@frames")
 public class TestRunner {
 //to execute cases
 }

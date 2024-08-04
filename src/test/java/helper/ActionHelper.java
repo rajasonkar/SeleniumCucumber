@@ -28,6 +28,10 @@ public class ActionHelper extends TestBase{
 	{
 		js.executeScript("arguments[0].scrollIntoView();", driver.findElement(element) );
 	}
+	public void scrollToElement(String element, String text) 
+	{
+		js.executeScript("arguments[0].scrollIntoView();", driver.findElement(By.xpath(String.format(element, text))));
+	}
 	
 	public void elementAvailability(String options, By webElement) 
 	{
@@ -122,5 +126,18 @@ public class ActionHelper extends TestBase{
 			driverWait.until(ExpectedConditions.alertIsPresent());
 			alert.dismiss();
 		}
+	}
+	
+	public void switchToFrame(String id) 
+	{
+		driver.switchTo().frame(id);
+	}
+	public void switchToFrame(WebElement element) 
+	{
+		driver.switchTo().frame(element);
+	}
+	public void switchToDefaultFrame() 
+	{
+		driver.switchTo().defaultContent();
 	}
 }

@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">Build 1</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Aug 04, 2024 14:42:14</span></a>
+<a href="#"><span class="badge badge-primary">Aug 04, 2024 23:58:24</span></a>
 </li>
 </ul>
 </div>
@@ -79,7 +79,7 @@
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
 <ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
-<a class="dropdown-item" href="#">@alerts</a>
+<a class="dropdown-item" href="#">@frames</a>
 </ul>
 </li>
 </ul>
@@ -92,7 +92,7 @@
           <div class="test-detail">
             <p class="name">Alert, Frames and windows</p>
             <p class="text-sm">
-              <span>2:42:18 PM</span> / <span>00:00:32:733</span>
+              <span>11:58:27 PM</span> / <span>00:00:52:221</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -101,9 +101,9 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-pass">Alert, Frames and windows</h5>
-<span class='badge badge-success'>08.04.2024 2:42:18 PM</span>
-<span class='badge badge-danger'>08.04.2024 2:42:51 PM</span>
-<span class='badge badge-default'>00:00:32:733</span>
+<span class='badge badge-success'>08.04.2024 11:58:27 PM</span>
+<span class='badge badge-danger'>08.04.2024 11:59:20 PM</span>
+<span class='badge badge-default'>00:00:52:221</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -116,68 +116,52 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>Switch to alert</div>
+        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>Switch to frames</div>
       </div>
     </div>
-        <div class="scenario_outline collapse">
-            <div class="card-body l1">
-              <div class="card-header">
-                <div class="card-title outline-child">
-                  <div class="node" id="3"><span class="badge log pass-bg mr-2">Pass</span>Switch to alert</div>
-                </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepDefinition.HomePageSteps.navigateScreen(java.lang.String)">
+                <span>Given I navigate to AlertFramesWindows page</span>
+      <div>
+      </div>
               </div>
-              <div class="card-body mt-3 collapse">
-                  <div class="step pass-bg">
-                    <span>Given I navigate to AlertFramesWindows page</span>
+              <div class="step pass-bg" title="stepDefinition.AlertFramesWindowsSteps.navigateToBrowseWindowsPage(java.lang.String)">
+                <span>When I navigate to Nested Frames page from alertsPage</span>
       <div>
       </div>
-                  </div>
-                  <div class="step pass-bg">
-                    <span>When I navigate to Alerts page from alertsPage</span>
-      <div>
-      </div>
-                  </div>
-                  <div class="step pass-bg">
-                    <span>And I click on Alert buttons simple alert</span>
-      <div>
-      </div>
-                  </div>
-                  <div class="step pass-bg">
-                    <span>Then I accept or reject alert simple alert</span>
-      <div>
-      </div>
-                  </div>
               </div>
-            </div>
-            <div class="card-body l1">
-              <div class="card-header">
-                <div class="card-title outline-child">
-                  <div class="node" id="14"><span class="badge log pass-bg mr-2">Pass</span>Switch to alert</div>
-                </div>
+              <div class="step pass-bg" title="stepDefinition.AlertFramesWindowsSteps.switchToParentFrame()">
+                <span>And I switch to parent frame</span>
+      <div>
+      </div>
               </div>
-              <div class="card-body mt-3 collapse">
-                  <div class="step pass-bg">
-                    <span>Given I navigate to AlertFramesWindows page</span>
+              <div class="step pass-bg" title="stepDefinition.AlertFramesWindowsSteps.verifyFrameText(java.lang.String,java.lang.String)">
+                <span>Then I verify text Parent frame on parent</span>
       <div>
       </div>
-                  </div>
-                  <div class="step pass-bg">
-                    <span>When I navigate to Alerts page from alertsPage</span>
-      <div>
-      </div>
-                  </div>
-                  <div class="step pass-bg">
-                    <span>And I click on Alert buttons reject alert</span>
-      <div>
-      </div>
-                  </div>
-                  <div class="step pass-bg">
-                    <span>Then I accept or reject alert reject alert</span>
-      <div>
-      </div>
-                  </div>
               </div>
-            </div>
+              <div class="step pass-bg" title="stepDefinition.AlertFramesWindowsSteps.switchToChildtFrame()">
+                <span>When I switch to child frame</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinition.AlertFramesWindowsSteps.verifyFrameText(java.lang.String,java.lang.String)">
+                <span>Then I verify text Child Iframe on child</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinition.AlertFramesWindowsSteps.navigateBackToDefaultFrame()">
+                <span>When I navigate to default frame</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinition.AlertFramesWindowsSteps.verifyFrameText(java.lang.String)">
+                <span>Then I veriy Nested Frames text</span>
+      <div>
+      </div>
+              </div>
+          </div>
         </div>
   </div>
 </div>
@@ -203,15 +187,15 @@
 <li class="test-item">
 <div class="test-detail">
 <span class="meta">
-<span class='badge log pass-bg'>2</span>
+<span class='badge log pass-bg'>1</span>
 </span>
-<p class="name">@alerts</p>
-<p class="duration text-sm">2 tests</p>
+<p class="name">@frames</p>
+<p class="duration text-sm">1 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>@alerts</h4>
-<span status="pass" class='badge log pass-bg'>2 passed</span>
+<h4>@frames</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
 </div>
 <table class='table table-sm mt-4'>
 <thead>
@@ -224,21 +208,11 @@
 <tbody>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>14:42:18 PM</td>
+<td>23:58:27 PM</td>
 <td>
-<a href="#" class="linked" test-id='1' id='3'>Switch to alert</a>
+<a href="#" class="linked" test-id='1' id='2'>Switch to frames</a>
 <div class="">
-<span class="badge badge-default">Alert, Frames and windows.Switch to alert</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>14:42:34 PM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='14'>Switch to alert</a>
-<div class="">
-<span class="badge badge-default">Alert, Frames and windows.Switch to alert</span>
+<span class="badge badge-default">Alert, Frames and windows.Switch to frames</span>
 </div>
 </td>
 </tr>
@@ -259,13 +233,13 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Aug 04, 2024 14:42:14</h3>
+<h3>Aug 04, 2024 23:58:24</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Aug 04, 2024 14:42:52</h3>
+<h3>Aug 04, 2024 23:59:21</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -316,7 +290,7 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>2</b> scenarios passed</small></div>
+<div><small data-tooltip='100%'><b>1</b> scenarios passed</small></div>
 <div>
 <small data-tooltip='0%'><b>0</b> scenarios failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
@@ -355,7 +329,7 @@
 </div></div>
 <script>
 var timeline = {
-"Alert, Frames and windows":32.733
+"Alert, Frames and windows":52.221
 };
 </script>
 <div class="row">
@@ -365,8 +339,8 @@ var timeline = {
 <div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
 <thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
 <tr>
-<td>@alerts</td>
-<td>2</td>
+<td>@frames</td>
+<td>1</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
@@ -404,7 +378,7 @@ failParent: 0,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
-passChild: 2,
+passChild: 1,
 failChild: 0,
 warningChild: 0,
 skipChild: 0,
