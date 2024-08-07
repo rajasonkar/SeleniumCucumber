@@ -10,9 +10,9 @@ import io.cucumber.junit.CucumberOptions;
 		glue= {"stepDefinition","hooks"},
 		plugin ={"pretty","json:target/jsonReports/cucumber-report.json",
 		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
-		//)
+		)
 		//,tags="@newtab")
-        ,tags="@frames")
+        //,tags="@menu")
 public class TestRunner {
 //to execute cases
-}
+} 

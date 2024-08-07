@@ -13,6 +13,7 @@ public class HomePage extends TestBase{
 	private By formsButton = By.xpath("//h5[text()='Forms']");
 	private By practiceForm = By.xpath("//span[text()='Practice Form']");
 	private By alertFramesButton = By.xpath("//h5[text()='Alerts, Frame & Windows']");
+	private By widgetsButton = By.xpath("//h5[contains(text(),'Widgets')]");
 	ActionHelper actionHelper = new ActionHelper();
 	
 	public void navigateToScreen(String screen) 
@@ -31,6 +32,9 @@ public class HomePage extends TestBase{
 		case "AlertFramesWindows":
 			navigateToAlertsFramesPage();
 			break;
+		case "Widgets":
+			navigateToWidgetsPage();
+			break;	
 		default:
 		break;
 		}
@@ -60,4 +64,10 @@ public class HomePage extends TestBase{
 		actionHelper.click(alertFramesButton);
 		
 	}
+
+	public void navigateToWidgetsPage() 
+	{
+		actionHelper.scrollToElement(driver.findElement(widgetsButton));
+		actionHelper.click(widgetsButton);
+	}	
 }

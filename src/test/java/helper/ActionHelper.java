@@ -9,6 +9,7 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -20,6 +21,7 @@ public class ActionHelper extends TestBase{
 	WebDriverWait driverWait = new WebDriverWait(driver, Duration.ofSeconds(30));
 	JavascriptExecutor js = (JavascriptExecutor)driver;
 	Alert alert ;
+	Actions action;
 	public void scrollToElement(WebElement element) 
 	{
 		js.executeScript("arguments[0].scrollIntoView();", element );
@@ -139,5 +141,11 @@ public class ActionHelper extends TestBase{
 	public void switchToDefaultFrame() 
 	{
 		driver.switchTo().defaultContent();
+	}
+	public void mouseHover (By element) 
+	{
+		action = new Actions(driver);
+		elementAvailability("visible",element);
+		action.moveToElement(driver.findElement(element)).build().perform();
 	}
 }
