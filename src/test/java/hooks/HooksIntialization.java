@@ -18,19 +18,19 @@ public class HooksIntialization extends TestBase{
 	
 //before and after hook
 	//WebDriver driver;
-	@Before
+	@Before ("@ui")
 	public void launchBrowser() throws IOException {
 		driver =startBrowser(driver);
 		driver.get(readPropertFileData.readData("URL"));
 		
 	}
 	
-	@After
+	@After ("@ui")
 	public void quitBrowser() {
 		//WebDriverManager.chromedriver().setup();
 		driver.quit();
 	}
-	@AfterStep
+	@AfterStep ("@ui")
 	public void afterStep(Scenario scenario)
 	{
 		if(scenario.isFailed()) 
@@ -44,6 +44,7 @@ public class HooksIntialization extends TestBase{
 		ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-infobars");
         options.addArguments("--start-maximized");
+      
        // options.setCapability("credentials_enable_service", false);
 		driver = new ChromeDriver(options);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));

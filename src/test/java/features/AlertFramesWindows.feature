@@ -1,3 +1,4 @@
+@ui
 Feature: Alert, Frames and windows
 
 @newtab

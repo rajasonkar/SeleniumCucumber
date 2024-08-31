@@ -1,4 +1,4 @@
-
+@ui
 Feature: Widgets page
 
   @menu

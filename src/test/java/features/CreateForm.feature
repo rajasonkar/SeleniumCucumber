@@ -1,3 +1,4 @@
+@ui
 Feature: Create new form
  
  @forms
