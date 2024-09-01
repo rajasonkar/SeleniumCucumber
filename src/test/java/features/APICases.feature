@@ -20,3 +20,4 @@ Scenario: To generate token
  And I execute the get request for BookStore/v1/Books
  Then I verify the status code as 200
  And I print the all the books
+ And I print all the headers

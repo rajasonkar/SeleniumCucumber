@@ -48,4 +48,8 @@ public class ApiPage{
 	{
 		 apiHelper.printBooks(jpath);
 	}
+	public void printHeader() 
+	{
+		apiHelper.printHeadrs();
+	}
 }

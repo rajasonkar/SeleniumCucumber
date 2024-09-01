@@ -64,5 +64,9 @@ public class ApiSteps {
 		apiPage.printBookName("books.title");
 	}
 	
-	
+	@Then("I print all the headers")
+	public void printAllTheHeaders() 
+	{	
+		apiPage.printHeader();
+	}
 }

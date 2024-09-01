@@ -7,9 +7,12 @@ import java.util.List;
 import com.google.gson.JsonObject;
 
 import io.restassured.RestAssured;
+import io.restassured.http.Header;
+import io.restassured.http.Headers;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
+import models.Books;
 import io.restassured.path.json.*;
 
 public class ApiHelper {
@@ -57,6 +60,33 @@ public class ApiHelper {
 		
 		List<Object> listOfBooks= response.body().jsonPath().getList(jpath);
 		System.out.println(listOfBooks);
-		
+	
+		List<Books> abc =response.getBody().jsonPath().getList("books", Books.class);
+	//	List<Books> abc =response.body().jsonPath().getList("books", Books.class);
+	//	above both code are valid line 63 and 63 getBody()s/body()
+		for(Books b : abc) 
+		{
+			System.out.println(b.getTitle());
+			System.out.println(b.getIsbn());
 		}
+				
+		}
+	public void printHeadrs() 
+	{
+		   Headers header =response.getHeaders();
+			System.out.println(response.getHeaders());
+			System.out.println("header by key --------------------------------------");
+			System.out.println(header.get("Connection"));
+			System.out.println("header by value --------------------------------------");
+			System.out.println(header.getValue("Connection"));
+			System.out.println("using for loop printing all---------------------------------------");
+			
+			for(Header head : header.asList()) 
+			{
+				System.out.println(head);
+			}
+
+			System.out.println("checking session id "+response.getSessionId());
+
+	}
 }
