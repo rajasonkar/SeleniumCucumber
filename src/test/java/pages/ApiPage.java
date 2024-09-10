@@ -1,5 +1,6 @@
 package pages;
 
+import java.io.File;
 import java.io.IOException;
 
 import org.junit.Assert;
@@ -19,18 +20,27 @@ public class ApiPage{
 		apiHelper.setBaseApiURL(dfpr.readData("apiBaseUrl"));
 		else if(app.equalsIgnoreCase("books"))
 			apiHelper.setBaseApiURL(dfpr.readData("booksBaseUrl"));
+		else if(app.equalsIgnoreCase("reqres"))
+			apiHelper.setBaseApiURL(dfpr.readData("reqresBaseUrl"));
 	}
-	public void setHeader() 
+	public void setHeader(String key, String value) 
 	{
-		apiHelper.addHeader("Content-Type", "application/json");
+		apiHelper.addHeader(key, value);
 	}
-	
+	public void setQueryParam(String key, String value) 
+	{
+		apiHelper.addQueryParamter(key, value);
+	}
 	public void addBody() throws IOException 
 	{
 		JsonObject js = new JsonObject();
 		js.addProperty("userName", dfpr.readData("username"));
 		js.addProperty("password", dfpr.readData("password"));
 		apiHelper.addbody(js);
+	}
+	public void addBodyJsonFile(String filename) throws IOException
+	{
+		apiHelper.addbody("src\\test\\resources\\"+filename);
 	}
 	public void execute(String requestType,String endpoint) 
 	{
@@ -40,9 +50,9 @@ public class ApiPage{
 	{
 		Assert.assertTrue(statusCode== apiHelper.getStatusCode());
 	}
-	public String getJsonPathString() 
+	public String getJsonPathString(String key) 
 	{
-		return apiHelper.getResponseData("token");
+		return apiHelper.getResponseData(key);
 	}
 	public void printBookName(String jpath) 
 	{
@@ -51,5 +61,9 @@ public class ApiPage{
 	public void printHeader() 
 	{
 		apiHelper.printHeadrs();
+	}
+	public void printUserDetails() 
+	{
+		apiHelper.printUserDeatilsFromResponse();
 	}
 }
